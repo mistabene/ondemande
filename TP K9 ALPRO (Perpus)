@@ -1,0 +1,335 @@
+#include <iostream>
+#include <limits>
+using namespace std;
+
+class Perpus {
+private:
+    struct Pelanggan {
+        string username;
+        string nama;
+        int umur;
+        string sandi;
+    };
+
+    struct Buku {
+        string nama_buku;
+        int id_buku;
+        string genre_buku;
+        string penulis;
+    };
+
+    Pelanggan akun[5];
+    int jum_akun = 0;
+
+    Buku buku[60];
+    int jum_buku = 5;
+
+    void isi_data_buku() {
+        buku[0] = {"Laskar Pelangi", 1001, "Drama", "Andrea Hirata"};
+        buku[1] = {"Bumi", 1002, "Fantasi", "Tere Liye"};
+        buku[2] = {"Negeri 5 Menara", 1003, "Inspirasi", "Ahmad Fuadi"};
+        buku[3] = {"Dilan 1990", 1004, "Romance", "Pidi Baiq"};
+        buku[4] = {"Perahu Kertas", 1005, "Romance", "Dee Lestari"};
+    }
+
+public:
+    Perpus() {
+        isi_data_buku(); // panggil saat objek dibuat
+    }
+
+    void m_pelanggan() {
+        int p;
+        do {
+            cout << "       Menu Pelanggan       " << endl;
+            cout << "____________________________" << endl;
+            cout << "(1) Daftar akun baru" << endl;
+            cout << "(2) Login akun" << endl;
+            cout << "(3) Lihat semua buku" << endl;
+            cout << "(4) Cari buku" << endl;
+            cout << "(5) Kembali ke menu utama" << endl << endl;
+            cout << "Masukkan pilihan anda  : ";
+            cin >> p;
+
+            switch (p) {
+                case 1:
+                    daftar_akun();
+                    jeda();
+                    break;
+                case 2:
+                    login_akun();
+                    jeda();
+                    break;
+                case 3:
+                    tampil_buku();
+                    jeda();
+                    break;
+                case 4:
+                    cari_buku();
+                    jeda();
+                    break;
+                case 5:
+                    jeda();
+                    break;
+                default:
+                    cout << "\nPilihan tidak tersedia!" << endl;
+                    jeda();
+                    break;
+            }
+        } while (p != 5);
+    }
+
+    void daftar_akun() {
+        if (jum_akun >= 5) {
+            cout << "Kuota akun hari ini sudah maksimal" << endl;
+            return;
+        }
+
+        cout << "\n       Daftar akun baru       " << endl;
+        cout << "______________________________" << endl;
+        cout << "Masukkan nama anda : ";
+        cin.ignore();
+        getline(cin, akun[jum_akun].nama);
+
+        cout << "Masukkan umur anda : ";
+        cin >> akun[jum_akun].umur;
+
+        cout << "Masukkan username untuk akun anda : ";
+        cin >> akun[jum_akun].username;
+
+        cout << "Masukkan sandi baru untuk akun anda : ";
+        cin >> akun[jum_akun].sandi;
+
+        cout << endl << "Akun " << akun[jum_akun].username << " telah dibuat!" << endl;
+        jum_akun++;
+    }
+
+    void login_akun() {
+        if (jum_akun == 0) {
+            cout << "Belum ada akun yang terdaftar." << endl;
+            return;
+        }
+
+        string uname, pass;
+        cout << "\n       Login Akun       " << endl;
+        cout << "_________________________" << endl;
+        cout << "Masukkan username : ";
+        cin >> uname;
+        cout << "Masukkan sandi    : ";
+        cin >> pass;
+
+        for (int i = 0; i < jum_akun; i++) {
+            if (akun[i].username == uname && akun[i].sandi == pass) {
+                cout << "\nLogin berhasil! Selamat datang, " << akun[i].nama << "!" << endl;
+                return;
+            }
+        }
+
+        cout << "\nUsername atau sandi salah!" << endl;
+    }
+
+    void tampil_buku() {
+        cout << "\n       Daftar Buku       " << endl;
+        cout << "___________________________" << endl;
+        for (int i = 0; i < jum_buku; i++) {
+            cout << i + 1 << ". " << buku[i].nama_buku << " (ID: " << buku[i].id_buku
+                 << ", Genre: " << buku[i].genre_buku << ", Penulis: " << buku[i].penulis << ")" << endl;
+        }
+    }
+
+    void cari_buku() {
+        int pilih;
+        cout << "\nCari buku berdasarkan:" << endl;
+        cout << "(1) Nama Buku" << endl;
+        cout << "(2) ID Buku" << endl;
+        cout << "(3) Genre Buku" << endl;
+        cout << "Pilihan: ";
+        cin >> pilih;
+
+        cin.ignore(); //menghindari masalah input baris berikutnya
+        bool ditemukan = false;
+
+        if (pilih == 1) {
+            string cari;
+            cout << "Masukkan nama buku: ";
+            getline(cin, cari);
+            for (int i = 0; i < jum_buku; i++) {
+                if (buku[i].nama_buku == cari) {
+                    tampilkan_buku(buku[i]);
+                    ditemukan = true;
+                }
+            }
+        } else if (pilih == 2) {
+            int id;
+            cout << "Masukkan ID buku: ";
+            cin >> id;
+            for (int i = 0; i < jum_buku; i++) {
+                if (buku[i].id_buku == id) {
+                    tampilkan_buku(buku[i]);
+                    ditemukan = true;
+                }
+            }
+        } else if (pilih == 3) {
+            string genre;
+            cout << "Masukkan genre buku: ";
+            /*cin.ignore();*/ //untuk memastikan getline bisa dipakai setelah cin
+            getline(cin, genre);
+            for (int i = 0; i < jum_buku; i++) {
+                if (buku[i].genre_buku == genre) {
+                    tampilkan_buku(buku[i]);
+                    ditemukan = true;
+                }
+            }
+        }
+
+        if (!ditemukan) {
+            cout << "\nBuku tidak ditemukan.\n";
+        }
+    }
+
+    void tampilkan_buku(Buku b) {
+        cout << "\nNama Buku : " << b.nama_buku << endl;
+        cout << "ID Buku   : " << b.id_buku << endl;
+        cout << "Genre     : " << b.genre_buku << endl;
+        cout << "Penulis   : " << b.penulis << endl;
+    }
+
+    void jeda() {
+        system("pause");
+        system("cls");
+    }
+    
+    // ================= MENU KARYAWAN =================
+    void m_karyawan() {
+        int pilih;
+        do {
+            cout << "       Menu Karyawan       " << endl;
+            cout << "____________________________" << endl;
+            cout << "(1) Input Data Buku" << endl;
+            cout << "(2) Lihat Data Buku" << endl;
+            cout << "(3) Input Data Anggota" << endl;
+            cout << "(4) Lihat Data Anggota" << endl;
+            cout << "(5) Kembali ke menu utama" << endl;
+            cout << "Masukkan pilihan anda : ";
+            cin >> pilih;
+
+            switch (pilih) {
+                case 1:
+                    input_data_buku();
+                    jeda();
+                    break;
+                case 2:
+                    tampil_buku();
+                    jeda();
+                    break;
+                case 3:
+                    input_data_anggota();
+                    jeda();
+                    break;
+                case 4:
+                    tampil_data_anggota();
+                    jeda();
+                    break;
+                case 5:
+                    jeda();
+                    break;
+                default:
+                    cout << "Pilihan tidak tersedia!" << endl;
+                    jeda();
+                    break;
+            }
+        } while (pilih != 5);
+    }
+
+    void input_data_buku() {
+        if (jum_buku >= 60) {
+            cout << "\nJumlah maksimal buku telah tercapai.\n";
+            return;
+        }
+
+        cout << "\n       Input Data Buku Baru       " << endl;
+        cout << "__________________________________" << endl;
+        cin.ignore();
+        cout << "Masukkan nama buku  : ";
+        getline(cin, buku[jum_buku].nama_buku);
+        cout << "Masukkan ID buku    : ";
+        cin >> buku[jum_buku].id_buku;
+        cin.ignore();
+        cout << "Masukkan genre buku : ";
+        getline(cin, buku[jum_buku].genre_buku);
+        cout << "Masukkan penulis    : ";
+        getline(cin, buku[jum_buku].penulis);
+
+        cout << "\nBuku berhasil ditambahkan!\n";
+        jum_buku++;
+    }
+
+    void input_data_anggota() {
+        if (jum_akun >= 5) {
+            cout << "\nJumlah maksimal akun telah tercapai.\n";
+            return;
+        }
+
+        cout << "\n       Input Data Anggota Baru       " << endl;
+        cout << "______________________________________" << endl;
+        cin.ignore();
+        cout << "Masukkan nama anggota : ";
+        getline(cin, akun[jum_akun].nama);
+        cout << "Masukkan umur          : ";
+        cin >> akun[jum_akun].umur;
+        cout << "Masukkan username      : ";
+        cin >> akun[jum_akun].username;
+        cout << "Masukkan sandi         : ";
+        cin >> akun[jum_akun].sandi;
+
+        cout << "\nData anggota berhasil ditambahkan!\n";
+        jum_akun++;
+    }
+
+    void tampil_data_anggota() {
+        cout << "\n       Daftar akun pelanggan       " << endl;
+        cout << "_____________________________________" << endl;
+        for (int i = 0; i < jum_akun; i++) {
+            cout << i + 1 << ". Nama: " << akun[i].nama << ", Umur: " << akun[i].umur
+                 << ", Username: " << akun[i].username << endl;
+        }
+    }
+};
+
+int main() {
+    int p;
+    Perpus neuf;
+
+    do {
+        cout << "       Selamat datang di perpustakaan Neuf!       " << endl;
+        cout << "__________________________________________________" << endl << endl;
+        cout << "(1) Pelanggan" << endl;
+        cout << "(2) Karyawan" << endl;
+        cout << "(3) Keluar" << endl << endl;
+        cout << "Masukkan pilihan anda  : ";
+        cin >> p;
+
+        switch (p) {
+            case 1:
+            	system("pause");
+                system("cls");
+                neuf.m_pelanggan();
+            break;
+            case 2:
+                neuf.jeda();
+    			neuf.m_karyawan();
+                system("pause");
+                system("cls");
+            break;
+            case 3:
+                cout << endl << "Terimakasih telah berkunjung di perpustakaan Neuf!" << endl;
+            break;
+            default:
+                cout << endl << "Pilihan tidak tersedia!" << endl << endl;
+                system("pause");
+                system("cls");
+            break;
+        }
+    } while (p != 3);
+
+    return 0;
+}
