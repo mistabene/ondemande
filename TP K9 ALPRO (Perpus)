@@ -24,21 +24,75 @@ private:
     Pelanggan akun[5];
     int jum_akun = 0;
 
-    Buku buku[60];
-    int jum_buku = 5;
+    Buku buku[65];
+    int jum_buku = 60;
     
     int harga_sewa = 0;
     
     int index_akun = -1;
 
     void isi_data_buku() {
-        buku[0] = {"Laskar Pelangi", 1001, "Drama", "Andrea Hirata"};
-        buku[1] = {"Bumi", 1002, "Fantasi", "Tere Liye"};
-        buku[2] = {"Negeri 5 Menara", 1003, "Inspirasi", "Ahmad Fuadi"};
-        buku[3] = {"Dilan 1990", 1004, "Romance", "Pidi Baiq"};
-        buku[4] = {"Perahu Kertas", 1005, "Romance", "Dee Lestari"};
-    }
-
+    buku[0] = {"Laskar Pelangi", 1001, "Drama", "Andrea Hirata"};
+    buku[1] = {"Bumi", 1002, "Fantasi", "Tere Liye"};
+    buku[2] = {"Negeri 5 Menara", 1003, "Inspirasi", "Ahmad Fuadi"};
+    buku[3] = {"Dilan 1990", 1004, "Romance", "Pidi Baiq"};
+    buku[4] = {"Perahu Kertas", 1005 , "Romance", "Dee Lestari"};
+    buku[5] = {"Filosofi Teras", 2018 , "Filsafat", "Kompas Gramedia"};
+    buku[6] = {"Ayat-Ayat Cinta", 2004 , "Romantis", "Republika Publishing"};
+    buku[7] = {"Selamat Tinggal", 2020 , "Relasi", "Falcon Publishing"};
+    buku[8] = {"Critical Eleven", 2015 , "Drama" ,"Gramedia Pustaka Utama"};
+    buku[9] = {"Dear Nathan", 2016 , "Remaja" , "Best Media"};
+    buku[10] = {"Mariposa", 2018 , "Romantis", "Coconut Books"};
+    buku[11] = {"Imperfect", 2018, "Komedi","Gramedia Pustaka Utama"};
+    buku[12] = {"Galaksi", 2018 ,"Remaja","Coconut Books"};
+    buku[13] = {"Pintu Harmonika", 2013, "Keluarga", "GagasMedia"};
+    buku[14] = {"Koala Kumal", 2015, "Komedi", "GagasMedia"};
+    buku[15] = {"Sang Pemimpi", 2006, "Pendidikan", "Bentang Pustaka"};
+    buku[16] = {"Hujan", 2016, "Fiksi Ilmiah", "Gramedia Pustaka Utama"};
+    buku[17] = {"Rectoverso", 2008, "Cinta", "Bentang Pustaka"};
+    buku[18] = {"Tentang Kamu", 2016, "Misteri", "PT Mizan Pustaka"};
+    buku[19] = {"Sabtu Bersama Bapak", 2014, "Keluarga", "GagasMedia"};
+    buku[20] = {"Cinta Brontosaurus", 2011, "Komedi", "GagasMedia"};
+    buku[21] = {"The Little Prince", 1943, "Anak-anak", "Reynal & Hitchcock"};
+    buku[22] = {"The Alchemist", 1988, "Filsafat", "HarperCollins"};
+    buku[23] = {"1984", 1949, "Dystopia", "Secker & Warburg"};
+    buku[24] = {"Animal Farm", 1945, "Politik", "Harvill Secker"};
+    buku[25] = {"To Kill a Mockingbird", 1960, "Sosial", "J. B. Lippincott & Co."};
+    buku[26] = {"Pride and Prejudice", 1813, "Romantis", "T. Egerton"};
+    buku[27] = {"Looking for Alaska", 2005, "Remaja", "Dutton Juvenile"};
+    buku[28] = {"Paper Towns", 2008, "Remaja", "Dutton Books"};
+    buku[29] = {"Daun yang Jatuh Tak Pernah Membenci Angin", 2010, "Drama", "Gramedia Pustaka Utama"};
+    buku[30] = {"Negeri Para Bedebah", 2012, "Politik", "Gramedia Pustaka Utama"};
+    buku[31] = {"Negeri di Ujung Tanduk", 2013, "Politik", "Gramedia Pustaka Utama"};
+    buku[32] = {"Berjuta Rasanya", 2007, "Cinta", "Gramedia Pustaka Utama"};
+    buku[33] = {"Filosofi Kopi", 2006, "Drama", "GagasMedia"};
+    buku[34] = {"Balada Si Roy", 1990, "Remaja", "Gramedia"};
+    buku[35] = {"Ronggeng Dukuh Paruk", 1982, "Sosial", "Gramedia Pustaka Utama"};
+    buku[36] = {"Cantik Itu Luka", 2002, "Sejarah", "KPG"};
+    buku[37] = {"Lelaki Harimau", 2004, "Mitologi", "KPG"};
+    buku[38] = {"Laut dan Langit", 2019, "Romantis", "GagasMedia"};
+    buku[39] = {"Komet", 2018, "Fantasi", "Gramedia Pustaka Utama"};
+    buku[40] = {"Komet Minor", 2019, "Fantasi", "Gramedia Pustaka Utama"};
+    buku[41] = {"Selena", 2020, "Fantasi", "Gramedia Pustaka Utama"};
+    buku[42] = {"Nebula", 2021, "Fantasi", "Gramedia Pustaka Utama"};
+    buku[43] = {"Tikungan Tajam", 2011, "Drama", "GagasMedia"};
+    buku[44] = {"Ayah", 2015, "Keluarga", "Republika Publishing"};
+    buku[45] = {"Hati Suhita", 2022, "Religi", "Noura Books"};
+    buku[46] = {"Cinta dalam Gelas", 2010, "Inspiratif", "Bentang Pustaka"};
+    buku[47] = {"Surat Kecil untuk Tuhan", 2010, "Keluarga", "Qanita"};
+    buku[48] = {"Catatan Najwa", 2016, "Sosial Politik", "Mizan Media Utama"};
+    buku[49] = {"Orang-Orang Biasa", 2019, "Sosial", "Gramedia Pustaka Utama"};
+    buku[50] = {"Bumi Manusia", 1980, "Sejarah", "Hasta Mitra"};
+    buku[51] = {"Anak Semua Bangsa", 1981, "Sejarah", "Hasta Mitra"};
+    buku[52] = {"Jejak Langkah", 1985, "Sejarah", "Hasta Mitra"};
+    buku[53] = {"Rumah Kaca", 1988, "Sejarah", "Hasta Mitra"};
+    buku[54] = {"This Earth of Mankind", 1980, "Sejarah", "Penguin Classics"};
+    buku[55] = {"Sang Penari", 2011, "Budaya", "Gramedia Pustaka Utama"};
+    buku[56] = {"Manusia Setengah Salmon", 2011, "Komedi", "GagasMedia"};
+    buku[57] = {"Jalan Pulang", 2021, "Fiksi", "Bentang Pustaka"};
+    buku[58] = {"Cinta dalam Diam", 2015, "Religi", "Qanita"};
+    buku[59] = {"Bidadari Bermata Bening", 2017, "Religi", "Syaamil Books"};
+}
 public:
     Perpus() {
         isi_data_buku(); // panggil saat objek dibuat
