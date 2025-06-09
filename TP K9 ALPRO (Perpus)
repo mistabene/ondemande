@@ -9,6 +9,8 @@ private:
         string nama;
         int umur;
         string sandi;
+        string buku_sewa[5];
+        int jum_sewa = 0;
     };
 
     struct Buku {
@@ -16,6 +18,7 @@ private:
         int id_buku;
         string genre_buku;
         string penulis;
+        string review[5];
     };
 
     Pelanggan akun[5];
@@ -23,6 +26,10 @@ private:
 
     Buku buku[60];
     int jum_buku = 5;
+    
+    int harga_sewa = 0;
+    
+    int index_akun = -1;
 
     void isi_data_buku() {
         buku[0] = {"Laskar Pelangi", 1001, "Drama", "Andrea Hirata"};
@@ -38,7 +45,8 @@ public:
     }
 
     void m_pelanggan() {
-        int p;
+        int pilih;
+        
         do {
             cout << "       Menu Pelanggan       " << endl;
             cout << "____________________________" << endl;
@@ -48,34 +56,40 @@ public:
             cout << "(4) Cari buku" << endl;
             cout << "(5) Kembali ke menu utama" << endl << endl;
             cout << "Masukkan pilihan anda  : ";
-            cin >> p;
+            cin >> pilih;
 
-            switch (p) {
+            switch (pilih) {
                 case 1:
                     daftar_akun();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 2:
                     login_akun();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 3:
                     tampil_buku();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 4:
                     cari_buku();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 5:
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 default:
                     cout << "\nPilihan tidak tersedia!" << endl;
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
             }
-        } while (p != 5);
+        } while (pilih != 5);
     }
 
     void daftar_akun() {
@@ -117,14 +131,21 @@ public:
         cout << "Masukkan sandi    : ";
         cin >> pass;
 
-        for (int i = 0; i < jum_akun; i++) {
-            if (akun[i].username == uname && akun[i].sandi == pass) {
-                cout << "\nLogin berhasil! Selamat datang, " << akun[i].nama << "!" << endl;
-                return;
-            }
-        }
-
-        cout << "\nUsername atau sandi salah!" << endl;
+        bool login_berhasil = false;
+		for (int i = 0; i < jum_akun; i++) {
+    		if (akun[i].username == uname && akun[i].sandi == pass) {
+        		cout << "\nLogin berhasil! Selamat datang, " << akun[i].nama << "!" << endl;
+        		index_akun = i;
+        		login_berhasil = true;
+        		system("pause");
+        		system("cls");
+       		m_pelanggan_2();
+        break;
+    	}
+	}
+		if (!login_berhasil) {
+    		cout << "\nUsername atau sandi salah!" << endl;
+		}
     }
 
     void tampil_buku() {
@@ -138,6 +159,7 @@ public:
 
     void cari_buku() {
         int pilih;
+        
         cout << "\nCari buku berdasarkan:" << endl;
         cout << "(1) Nama Buku" << endl;
         cout << "(2) ID Buku" << endl;
@@ -192,11 +214,6 @@ public:
         cout << "Genre     : " << b.genre_buku << endl;
         cout << "Penulis   : " << b.penulis << endl;
     }
-
-    void jeda() {
-        system("pause");
-        system("cls");
-    }
     
     // ================= MENU KARYAWAN =================
     void m_karyawan() {
@@ -215,26 +232,32 @@ public:
             switch (pilih) {
                 case 1:
                     input_data_buku();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 2:
                     tampil_buku();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 3:
                     input_data_anggota();
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 case 4:
                     tampil_data_anggota();
-                    jeda();
+                  	system("pause");
+                	system("cls");
                     break;
                 case 5:
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
                 default:
                     cout << "Pilihan tidak tersedia!" << endl;
-                    jeda();
+                    system("pause");
+                	system("cls");
                     break;
             }
         } while (pilih != 5);
@@ -293,10 +316,145 @@ public:
                  << ", Username: " << akun[i].username << endl;
         }
     }
+    
+    void m_pelanggan_2(){
+    	int pilih;
+    	
+    	do{
+    	cout << "        Menu pelanggan 2       " << endl;
+    	cout << "_______________________________" << endl;
+    	cout << "(1) Sewa buku" << endl;
+    	cout << "(2) Lihat semua buku" <<endl;
+    	cout << "(3) Cari buku" << endl;
+    	cout << "(4) Review buku" << endl;
+    	cout << "(5) Kembali ke menu utama" <<endl;
+    	cout << "Masukkan pilihan anda  : ";
+        cin >> pilih;
+        system("pause");
+        system("cls");
+    	
+    	switch (pilih){
+    		case 1:
+    			penyewaan(akun[index_akun].jum_sewa);
+    			system("pause");
+                system("cls");
+    		break;
+    		case 2:
+    			tampil_buku();
+    			system("pause");
+                system("cls");
+    		break;
+    		case 3:
+    			cari_buku();
+    			system("pause");
+                system("cls");
+    		break;
+    		case 4:
+//    			review_buku();
+    		break;
+    		case 5:
+    			if(akun[index_akun].jum_sewa > 0) {
+    				cout << "Buku yang anda sewa : " << endl;
+    				
+    			for(int i = 0; i < akun[index_akun].jum_sewa; i++) {
+        			cout << i+1 << ". " << akun[index_akun].buku_sewa[i] << endl;
+    			}
+			} else if (akun[index_akun].jum_sewa == 0) {
+				return;
+			}
+			break;
+			default:
+				cout << "Pilihan tidak tersedia!" << endl;
+                system("pause");
+                system("cls");
+            break;
+		} 
+		} while (pilih != 5);
+	}
+	
+	void penyewaan(int sewa){
+		int pilih;
+		int hari;
+		int i;
+		
+		if (akun[index_akun].jum_sewa >= 5) {
+    	cout << "Anda sudah menyewa 5 buku, tidak bisa menyewa lagi" << endl;
+    	return;
+    	};
+		
+		cout << "                Sewa buku                " << endl;
+		cout << "_________________________________________" << endl;
+        cout << "Cari buku yang akan disewa berdasarkan:" << endl;
+        cout << "(1) Nama Buku" << endl;
+        cout << "(2) ID Buku" << endl;
+        cout << "(3) Genre Buku" << endl;
+        cout << "Pilihan: ";
+        cin >> pilih;
+
+        cin.ignore(); //menghindari masalah input baris berikutnya
+        bool ditemukan = false;
+
+        if (pilih == 1) {
+            string cari;
+            cout << "Masukkan nama buku: ";
+            getline(cin, cari);
+            for (i = 0; i < jum_buku; i++) {
+                if (buku[i].nama_buku == cari) {
+                    tampilkan_buku(buku[i]);
+                    ditemukan = true;
+                }
+            }
+        } else if (pilih == 2) {
+            int id;
+            cout << "Masukkan ID buku: ";
+            cin >> id;
+            for (int i = 0; i < jum_buku; i++) {
+                if (buku[i].id_buku == id) {
+                    tampilkan_buku(buku[i]);
+                    ditemukan = true;
+                }
+            }
+        } else if (pilih == 3) {
+            string genre;
+            cout << "Masukkan genre buku: ";
+            /*cin.ignore();*/ //untuk memastikan getline bisa dipakai setelah cin
+            getline(cin, genre);
+            for (i = 0; i < jum_buku; i++) {
+                if (buku[i].genre_buku == genre) {
+                    tampilkan_buku(buku[i]);
+                    ditemukan = true;
+                }
+            }
+        }
+        
+        if (ditemukan) {
+        	do {
+        	cout << "Sewa " << buku[i].nama_buku << " untuk berapa hari : ";
+        	cin >> hari;
+        	
+        	if(hari==0) {
+        		cout << "Tidak bisa menyewa selama 0 hari" << endl;
+			}
+			
+			akun[index_akun].buku_sewa[akun[index_akun].jum_sewa] = buku[i].nama_buku;
+			akun[index_akun].jum_sewa++;
+			
+			} while (hari==0);
+			
+		}
+
+        if (!ditemukan) {
+            cout << "\nBuku tidak ditemukan.\n";
+        }
+	}
+	
+//	void review_buku(){
+//		
+//	}
 };
 
 int main() {
-    int p;
+    int pilih;
     Perpus neuf;
 
     do {
@@ -306,19 +464,18 @@ int main() {
         cout << "(2) Karyawan" << endl;
         cout << "(3) Keluar" << endl << endl;
         cout << "Masukkan pilihan anda  : ";
-        cin >> p;
+        cin >> pilih;
 
-        switch (p) {
+        switch (pilih) {
             case 1:
             	system("pause");
                 system("cls");
                 neuf.m_pelanggan();
             break;
             case 2:
-                neuf.jeda();
-    			neuf.m_karyawan();
-                system("pause");
+            	system("pause");
                 system("cls");
+    			neuf.m_karyawan();
             break;
             case 3:
                 cout << endl << "Terimakasih telah berkunjung di perpustakaan Neuf!" << endl;
@@ -329,7 +486,7 @@ int main() {
                 system("cls");
             break;
         }
-    } while (p != 3);
+    } while (pilih != 3);
 
     return 0;
 }
