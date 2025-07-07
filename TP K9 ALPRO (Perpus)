@@ -30,343 +30,398 @@ private:
         string yang_review[5];
         int jum_review = 0;
     };
+    
+    struct Tanggal {
+	    int hari;
+	    int bulan;
+	    int tahun;
+	};
 
     Pelanggan akun[5];
     int jum_akun = 0;
 	
-    Buku buku[65];
+    Buku buku[70];
     Buku sementara;
     int jum_buku = 60;
 
     int index_akun = -1;
+    
+    Tanggal hari_ini;
 
 //-------------------- ISI DATA --------------------
 
-   void isi_data_buku() {
-    buku[0].nama_buku = "Laskar Pelangi";
-    buku[0].id_buku = 1001;
-    buku[0].genre_buku = "Drama";
-    buku[0].penulis = "Andrea Hirata";
+   	void isi_data_buku() {
+	    buku[0].nama_buku = "Laskar Pelangi";
+	    buku[0].id_buku = 1001;
+	    buku[0].genre_buku = "Drama";
+	    buku[0].penulis = "Andrea Hirata";
+	
+	    buku[1].nama_buku = "Bumi";
+	    buku[1].id_buku = 1002;
+	    buku[1].genre_buku = "Fantasi";
+	    buku[1].penulis = "Tere Liye";
+	
+	    buku[2].nama_buku = "Negeri 5 Menara";
+	    buku[2].id_buku = 1003;
+	    buku[2].genre_buku = "Inspirasi";
+	    buku[2].penulis = "Ahmad Fuadi";
+	
+	    buku[3].nama_buku = "Dilan 1990";
+	    buku[3].id_buku = 1004;
+	    buku[3].genre_buku = "Romance";
+	    buku[3].penulis = "Pidi Baiq";
+	
+	    buku[4].nama_buku = "Perahu Kertas";
+	    buku[4].id_buku = 1005;
+	    buku[4].genre_buku = "Romance";
+	    buku[4].penulis = "Dee Lestari";
+	
+	    buku[5].nama_buku = "Filosofi Teras";
+	    buku[5].id_buku = 1006;
+	    buku[5].genre_buku = "Filsafat";
+	    buku[5].penulis = "Henry Manampiring";
+	
+	    buku[6].nama_buku = "Ayat-Ayat Cinta";
+	    buku[6].id_buku = 1007;
+	    buku[6].genre_buku = "Romantis";
+	    buku[6].penulis = "Habiburrahman El Shirazy";
+	
+	    buku[7].nama_buku = "Selamat Tinggal";
+	    buku[7].id_buku = 1008;
+	    buku[7].genre_buku = "Relasi";
+	    buku[7].penulis = "Tere Liye";
+	
+	    buku[8].nama_buku = "Critical Eleven";
+	    buku[8].id_buku = 1009;
+	    buku[8].genre_buku = "Drama";
+	    buku[8].penulis = "Ika Natassa";
+	
+	    buku[9].nama_buku = "Dear Nathan";
+	    buku[9].id_buku = 1010;
+	    buku[9].genre_buku = "Remaja";
+	    buku[9].penulis = "Erisca Febriani";
+	    
+	    buku[10].nama_buku = "Mariposa";
+	    buku[10].id_buku = 1011;
+	    buku[10].genre_buku = "Romantis";
+	    buku[10].penulis = "Luluk HF";
+	
+	    buku[11].nama_buku = "Imperfect";
+	    buku[11].id_buku = 1012;
+	    buku[11].genre_buku = "Komedi";
+	    buku[11].penulis = "Meira Anastasia";
+	
+	    buku[12].nama_buku = "Galaksi";
+	    buku[12].id_buku = 1013;
+	    buku[12].genre_buku = "Remaja";
+	    buku[12].penulis = "Poppi Pertiwi";
+	
+	    buku[13].nama_buku = "Pintu Harmonika";
+	    buku[13].id_buku = 1014;
+	    buku[13].genre_buku = "Keluarga";
+	    buku[13].penulis = "Clara Ng";
+	
+	    buku[14].nama_buku = "Koala Kumal";
+	    buku[14].id_buku = 1015;
+	    buku[14].genre_buku = "Komedi";
+	    buku[14].penulis = "Raditya Dika";
+	
+	    buku[15].nama_buku = "Sang Pemimpi";
+	    buku[15].id_buku = 1016;
+	    buku[15].genre_buku = "Pendidikan";
+	    buku[15].penulis = "Andrea Hirata";
+	
+	    buku[16].nama_buku = "Hujan";
+	    buku[16].id_buku = 1017;
+	    buku[16].genre_buku = "Fiksi Ilmiah";
+	    buku[16].penulis = "Tere Liye";
+	
+	    buku[17].nama_buku = "Rectoverso";
+	    buku[17].id_buku = 1018;
+	    buku[17].genre_buku = "Cinta";
+	    buku[17].penulis = "Dee Lestari";
+	
+	    buku[18].nama_buku = "Tentang Kamu";
+	    buku[18].id_buku = 1019;
+	    buku[18].genre_buku = "Misteri";
+	    buku[18].penulis = "Tere Liye";
+	
+	    buku[19].nama_buku = "Sabtu Bersama Bapak";
+	    buku[19].id_buku = 1020;
+	    buku[19].genre_buku = "Keluarga";
+	    buku[19].penulis = "Adhitya Mulya";
+	    
+	    buku[20].nama_buku = "Cinta Brontosaurus";
+	    buku[20].id_buku = 1021;
+	    buku[20].genre_buku = "Komedi";
+	    buku[20].penulis = "Raditya Dika";
+	
+	    buku[21].nama_buku = "The Little Prince";
+	    buku[21].id_buku = 1022;
+	    buku[21].genre_buku = "Anak-anak";
+	    buku[21].penulis = "Antoine de Saint-ExupÃ©ry";
+	
+	    buku[22].nama_buku = "The Alchemist";
+	    buku[22].id_buku = 1023;
+	    buku[22].genre_buku = "Filsafat";
+	    buku[22].penulis = "Paulo Coelho";
+	
+	    buku[23].nama_buku = "1984";
+	    buku[23].id_buku = 1024;
+	    buku[23].genre_buku = "Dystopia";
+	    buku[23].penulis = "George Orwell";
+	
+	    buku[24].nama_buku = "Animal Farm";
+	    buku[24].id_buku = 1025;
+	    buku[24].genre_buku = "Politik";
+	    buku[24].penulis = "George Orwell";
+	
+	    buku[25].nama_buku = "To Kill a Mockingbird";
+	    buku[25].id_buku = 1026;
+	    buku[25].genre_buku = "Sosial";
+	    buku[25].penulis = "Harper Lee";
+	
+	    buku[26].nama_buku = "Pride and Prejudice";
+	    buku[26].id_buku = 1027;
+	    buku[26].genre_buku = "Romantis";
+	    buku[26].penulis = "Jane Austen";
+	
+	    buku[27].nama_buku = "Looking for Alaska";
+	    buku[27].id_buku = 1028;
+	    buku[27].genre_buku = "Remaja";
+	    buku[27].penulis = "John Green";
+	
+	    buku[28].nama_buku = "Paper Towns";
+	    buku[28].id_buku = 1029;
+	    buku[28].genre_buku = "Remaja";
+	    buku[28].penulis = "John Green";
+	
+	    buku[29].nama_buku = "Daun yang Jatuh Tak Pernah Membenci Angin";
+	    buku[29].id_buku = 1030;
+	    buku[29].genre_buku = "Drama";
+	    buku[29].penulis = "Tere Liye";
+	
+	    buku[30].nama_buku = "Negeri Para Bedebah";
+	    buku[30].id_buku = 1031;
+	    buku[30].genre_buku = "Politik";
+	    buku[30].penulis = "Tere Liye";
+	
+	    buku[31].nama_buku = "Negeri di Ujung Tanduk";
+	    buku[31].id_buku = 1032;
+	    buku[31].genre_buku = "Politik";
+	    buku[31].penulis = "Tere Liye";
+	
+	    buku[32].nama_buku = "Berjuta Rasanya";
+	    buku[32].id_buku = 1033;
+	    buku[32].genre_buku = "Cinta";
+	    buku[32].penulis = "Tere Liye";
+	
+	    buku[33].nama_buku = "Filosofi Kopi";
+	    buku[33].id_buku = 1034;
+	    buku[33].genre_buku = "Drama";
+	    buku[33].penulis = "Dee Lestari";
+	
+	    buku[34].nama_buku = "Balada Si Roy";
+	    buku[34].id_buku = 1035;
+	    buku[34].genre_buku = "Remaja";
+	    buku[34].penulis = "Gol A Gong";
+	
+	    buku[35].nama_buku = "Ronggeng Dukuh Paruk";
+	    buku[35].id_buku = 1036;
+	    buku[35].genre_buku = "Sosial";
+	    buku[35].penulis = "Ahmad Tohari";
+	
+	    buku[36].nama_buku = "Cantik Itu Luka";
+	    buku[36].id_buku = 1037;
+	    buku[36].genre_buku = "Sejarah";
+	    buku[36].penulis = "Eka Kurniawan";
+	
+	    buku[37].nama_buku = "Lelaki Harimau";
+	    buku[37].id_buku = 1038;
+	    buku[37].genre_buku = "Mitologi";
+	    buku[37].penulis = "Eka Kurniawan";
+	
+	    buku[38].nama_buku = "Laut dan Langit";
+	    buku[38].id_buku = 1039;
+	    buku[38].genre_buku = "Romantis";
+	    buku[38].penulis = "Dwitasari";
+	
+	    buku[39].nama_buku = "Komet";
+	    buku[39].id_buku = 1040;
+	    buku[39].genre_buku = "Fantasi";
+	    buku[39].penulis = "Tere Liye";
+	    buku[40].nama_buku = "Komet Minor";
+	    buku[40].id_buku = 1041;
+	    buku[40].genre_buku = "Fantasi";
+	    buku[40].penulis = "Tere Liye";
+	
+	    buku[41].nama_buku = "Selena";
+	    buku[41].id_buku = 1042;
+	    buku[41].genre_buku = "Fantasi";
+	    buku[41].penulis = "Tere Liye";
+	
+	    buku[42].nama_buku = "Nebula";
+	    buku[42].id_buku = 1043;
+	    buku[42].genre_buku = "Fantasi";
+	    buku[42].penulis = "Tere Liye";
+	
+	    buku[43].nama_buku = "Tikungan Tajam";
+	    buku[43].id_buku = 1044;
+	    buku[43].genre_buku = "Drama";
+	    buku[43].penulis = "Okky Madasari";
+	
+	    buku[44].nama_buku = "Ayah";
+	    buku[44].id_buku = 1045;
+	    buku[44].genre_buku = "Keluarga";
+	    buku[44].penulis = "Andrea Hirata";
+	
+	    buku[45].nama_buku = "Hati Suhita";
+	    buku[45].id_buku = 1046;
+	    buku[45].genre_buku = "Religi";
+	    buku[45].penulis = "Khila Rindani";
+	
+	    buku[46].nama_buku = "Cinta dalam Gelas";
+	    buku[46].id_buku = 1047;
+	    buku[46].genre_buku = "Inspiratif";
+	    buku[46].penulis = "Andrea Hirata";
+	
+	    buku[47].nama_buku = "Surat Kecil untuk Tuhan";
+	    buku[47].id_buku = 1048;
+	    buku[47].genre_buku = "Keluarga";
+	    buku[47].penulis = "Agnes Davonar";
+	
+	    buku[48].nama_buku = "Catatan Najwa";
+	    buku[48].id_buku = 1049;
+	    buku[48].genre_buku = "Sosial Politik";
+	    buku[48].penulis = "Najwa Shihab";
+	
+	    buku[49].nama_buku = "Orang-Orang Biasa";
+	    buku[49].id_buku = 1050;
+	    buku[49].genre_buku = "Sosial";
+	    buku[49].penulis = "Andrea Hirata";
+	
+	    buku[50].nama_buku = "Bumi Manusia";
+	    buku[50].id_buku = 1051;
+	    buku[50].genre_buku = "Sejarah";
+	    buku[50].penulis = "Pramoedya Ananta Toer";
+	
+	    buku[51].nama_buku = "Anak Semua Bangsa";
+	    buku[51].id_buku = 1052;
+	    buku[51].genre_buku = "Sejarah";
+	    buku[51].penulis = "Pramoedya Ananta Toer";
+	
+	    buku[52].nama_buku = "Jejak Langkah";
+	    buku[52].id_buku = 1053;
+	    buku[52].genre_buku = "Sejarah";
+	    buku[52].penulis = "Pramoedya Ananta Toer";
+	
+	    buku[53].nama_buku = "Rumah Kaca";
+	    buku[53].id_buku = 1054;
+	    buku[53].genre_buku = "Sejarah";
+	    buku[53].penulis = "Pramoedya Ananta Toer";
+	
+	    buku[54].nama_buku = "This Earth of Mankind";
+	    buku[54].id_buku = 1055;
+	    buku[54].genre_buku = "Sejarah";
+	    buku[54].penulis = "Pramoedya Ananta Toer";
+	
+	    buku[55].nama_buku = "Sang Penari";
+	    buku[55].id_buku = 1056;
+	    buku[55].genre_buku = "Budaya";
+	    buku[55].penulis = "Ahmad Tohari";
+	
+	    buku[56].nama_buku = "Manusia Setengah Salmon";
+	    buku[56].id_buku = 1057;
+	    buku[56].genre_buku = "Komedi";
+	    buku[56].penulis = "Raditya Dika";
+	
+	    buku[57].nama_buku = "Jalan Pulang";
+	    buku[57].id_buku = 1058;
+	    buku[57].genre_buku = "Fiksi";
+	    buku[57].penulis = "Tere Liye";
+	
+	    buku[58].nama_buku = "Cinta dalam Diam";
+	    buku[58].id_buku = 1059;
+	    buku[58].genre_buku = "Religi";
+	    buku[58].penulis = "Felix Siauw";
+	
+	    buku[59].nama_buku = "Bidadari Bermata Bening";
+	    buku[59].id_buku = 1060;
+	    buku[59].genre_buku = "Religi";
+	    buku[59].penulis = "Habiburrahman El Shirazy";
+	    
+	    buku[60].nama_buku = "Atomic Habits";
+	    buku[60].id_buku = 1061;
+	    buku[60].genre_buku = "Self-Help";
+	    buku[60].penulis = "James Clear";
+	    
+	    buku[61].nama_buku = "La Tahzan";
+	    buku[61].id_buku = 1062;
+	    buku[61].genre_buku = "Religi";
+	    buku[61].penulis = "'Aidh Al-Qarni";
+	    
+	    buku[62].nama_buku = "Struktur Data dan Algoritma";
+	    buku[62].id_buku = 1063;
+	    buku[62].genre_buku = "Pendidikan";
+	    buku[62].penulis = "Abdul Kadir";
+	    
+	    buku[63].nama_buku = "Kisah 25 Nabi dan Rasul";
+	    buku[63].id_buku = 1064;
+	    buku[63].genre_buku = "Religi, Pendidikan";
+	    buku[63].penulis = "Tim Edukatif";
+	    
+	    buku[64].nama_buku = "Sherlock Holmes";
+	    buku[64].id_buku = 1065;
+	    buku[64].genre_buku = "Detektif";
+	    buku[64].penulis = "Sir Arthur Conan Doyle";
+	}
+	
+	bool is_kabisat(int tahun) {
+	    return (tahun % 4 == 0 && tahun % 100 != 0) || (tahun % 400 == 0);
+	}
+	
+	int jumlah_hari_bulan(int bulan, int tahun) {
+	    switch (bulan) {
+	        case 1: return 31;
+	        case 2: return is_kabisat(tahun) ? 29 : 28;
+	        case 3: return 31;
+	        case 4: return 30;
+	        case 5: return 31;
+	        case 6: return 30;
+	        case 7: return 31;
+	        case 8: return 31;
+	        case 9: return 30;
+	        case 10: return 31;
+	        case 11: return 30;
+	        case 12: return 31;
+	        default: return 0;
+	    }
+	}
 
-    buku[1].nama_buku = "Bumi";
-    buku[1].id_buku = 1002;
-    buku[1].genre_buku = "Fantasi";
-    buku[1].penulis = "Tere Liye";
-
-    buku[2].nama_buku = "Negeri 5 Menara";
-    buku[2].id_buku = 1003;
-    buku[2].genre_buku = "Inspirasi";
-    buku[2].penulis = "Ahmad Fuadi";
-
-    buku[3].nama_buku = "Dilan 1990";
-    buku[3].id_buku = 1004;
-    buku[3].genre_buku = "Romance";
-    buku[3].penulis = "Pidi Baiq";
-
-    buku[4].nama_buku = "Perahu Kertas";
-    buku[4].id_buku = 1005;
-    buku[4].genre_buku = "Romance";
-    buku[4].penulis = "Dee Lestari";
-
-    buku[5].nama_buku = "Filosofi Teras";
-    buku[5].id_buku = 1006;
-    buku[5].genre_buku = "Filsafat";
-    buku[5].penulis = "Henry Manampiring";
-
-    buku[6].nama_buku = "Ayat-Ayat Cinta";
-    buku[6].id_buku = 1007;
-    buku[6].genre_buku = "Romantis";
-    buku[6].penulis = "Habiburrahman El Shirazy";
-
-    buku[7].nama_buku = "Selamat Tinggal";
-    buku[7].id_buku = 1008;
-    buku[7].genre_buku = "Relasi";
-    buku[7].penulis = "Tere Liye";
-
-    buku[8].nama_buku = "Critical Eleven";
-    buku[8].id_buku = 1009;
-    buku[8].genre_buku = "Drama";
-    buku[8].penulis = "Ika Natassa";
-
-    buku[9].nama_buku = "Dear Nathan";
-    buku[9].id_buku = 1010;
-    buku[9].genre_buku = "Remaja";
-    buku[9].penulis = "Erisca Febriani";
-    
-    buku[10].nama_buku = "Mariposa";
-    buku[10].id_buku = 1011;
-    buku[10].genre_buku = "Romantis";
-    buku[10].penulis = "Luluk HF";
-
-    buku[11].nama_buku = "Imperfect";
-    buku[11].id_buku = 1012;
-    buku[11].genre_buku = "Komedi";
-    buku[11].penulis = "Meira Anastasia";
-
-    buku[12].nama_buku = "Galaksi";
-    buku[12].id_buku = 1013;
-    buku[12].genre_buku = "Remaja";
-    buku[12].penulis = "Poppi Pertiwi";
-
-    buku[13].nama_buku = "Pintu Harmonika";
-    buku[13].id_buku = 1014;
-    buku[13].genre_buku = "Keluarga";
-    buku[13].penulis = "Clara Ng";
-
-    buku[14].nama_buku = "Koala Kumal";
-    buku[14].id_buku = 1015;
-    buku[14].genre_buku = "Komedi";
-    buku[14].penulis = "Raditya Dika";
-
-    buku[15].nama_buku = "Sang Pemimpi";
-    buku[15].id_buku = 1016;
-    buku[15].genre_buku = "Pendidikan";
-    buku[15].penulis = "Andrea Hirata";
-
-    buku[16].nama_buku = "Hujan";
-    buku[16].id_buku = 1017;
-    buku[16].genre_buku = "Fiksi Ilmiah";
-    buku[16].penulis = "Tere Liye";
-
-    buku[17].nama_buku = "Rectoverso";
-    buku[17].id_buku = 1018;
-    buku[17].genre_buku = "Cinta";
-    buku[17].penulis = "Dee Lestari";
-
-    buku[18].nama_buku = "Tentang Kamu";
-    buku[18].id_buku = 1019;
-    buku[18].genre_buku = "Misteri";
-    buku[18].penulis = "Tere Liye";
-
-    buku[19].nama_buku = "Sabtu Bersama Bapak";
-    buku[19].id_buku = 1020;
-    buku[19].genre_buku = "Keluarga";
-    buku[19].penulis = "Adhitya Mulya";
-    
-    buku[20].nama_buku = "Cinta Brontosaurus";
-    buku[20].id_buku = 1021;
-    buku[20].genre_buku = "Komedi";
-    buku[20].penulis = "Raditya Dika";
-
-    buku[21].nama_buku = "The Little Prince";
-    buku[21].id_buku = 1022;
-    buku[21].genre_buku = "Anak-anak";
-    buku[21].penulis = "Antoine de Saint-Exupéry";
-
-    buku[22].nama_buku = "The Alchemist";
-    buku[22].id_buku = 1023;
-    buku[22].genre_buku = "Filsafat";
-    buku[22].penulis = "Paulo Coelho";
-
-    buku[23].nama_buku = "1984";
-    buku[23].id_buku = 1024;
-    buku[23].genre_buku = "Dystopia";
-    buku[23].penulis = "George Orwell";
-
-    buku[24].nama_buku = "Animal Farm";
-    buku[24].id_buku = 1025;
-    buku[24].genre_buku = "Politik";
-    buku[24].penulis = "George Orwell";
-
-    buku[25].nama_buku = "To Kill a Mockingbird";
-    buku[25].id_buku = 1026;
-    buku[25].genre_buku = "Sosial";
-    buku[25].penulis = "Harper Lee";
-
-    buku[26].nama_buku = "Pride and Prejudice";
-    buku[26].id_buku = 1027;
-    buku[26].genre_buku = "Romantis";
-    buku[26].penulis = "Jane Austen";
-
-    buku[27].nama_buku = "Looking for Alaska";
-    buku[27].id_buku = 1028;
-    buku[27].genre_buku = "Remaja";
-    buku[27].penulis = "John Green";
-
-    buku[28].nama_buku = "Paper Towns";
-    buku[28].id_buku = 1029;
-    buku[28].genre_buku = "Remaja";
-    buku[28].penulis = "John Green";
-
-    buku[29].nama_buku = "Daun yang Jatuh Tak Pernah Membenci Angin";
-    buku[29].id_buku = 1030;
-    buku[29].genre_buku = "Drama";
-    buku[29].penulis = "Tere Liye";
-
-    buku[30].nama_buku = "Negeri Para Bedebah";
-    buku[30].id_buku = 1031;
-    buku[30].genre_buku = "Politik";
-    buku[30].penulis = "Tere Liye";
-
-    buku[31].nama_buku = "Negeri di Ujung Tanduk";
-    buku[31].id_buku = 1032;
-    buku[31].genre_buku = "Politik";
-    buku[31].penulis = "Tere Liye";
-
-    buku[32].nama_buku = "Berjuta Rasanya";
-    buku[32].id_buku = 1033;
-    buku[32].genre_buku = "Cinta";
-    buku[32].penulis = "Tere Liye";
-
-    buku[33].nama_buku = "Filosofi Kopi";
-    buku[33].id_buku = 1034;
-    buku[33].genre_buku = "Drama";
-    buku[33].penulis = "Dee Lestari";
-
-    buku[34].nama_buku = "Balada Si Roy";
-    buku[34].id_buku = 1035;
-    buku[34].genre_buku = "Remaja";
-    buku[34].penulis = "Gol A Gong";
-
-    buku[35].nama_buku = "Ronggeng Dukuh Paruk";
-    buku[35].id_buku = 1036;
-    buku[35].genre_buku = "Sosial";
-    buku[35].penulis = "Ahmad Tohari";
-
-    buku[36].nama_buku = "Cantik Itu Luka";
-    buku[36].id_buku = 1037;
-    buku[36].genre_buku = "Sejarah";
-    buku[36].penulis = "Eka Kurniawan";
-
-    buku[37].nama_buku = "Lelaki Harimau";
-    buku[37].id_buku = 1038;
-    buku[37].genre_buku = "Mitologi";
-    buku[37].penulis = "Eka Kurniawan";
-
-    buku[38].nama_buku = "Laut dan Langit";
-    buku[38].id_buku = 1039;
-    buku[38].genre_buku = "Romantis";
-    buku[38].penulis = "Dwitasari";
-
-    buku[39].nama_buku = "Komet";
-    buku[39].id_buku = 1040;
-    buku[39].genre_buku = "Fantasi";
-    buku[39].penulis = "Tere Liye";
-    buku[40].nama_buku = "Komet Minor";
-    buku[40].id_buku = 1041;
-    buku[40].genre_buku = "Fantasi";
-    buku[40].penulis = "Tere Liye";
-
-    buku[41].nama_buku = "Selena";
-    buku[41].id_buku = 1042;
-    buku[41].genre_buku = "Fantasi";
-    buku[41].penulis = "Tere Liye";
-
-    buku[42].nama_buku = "Nebula";
-    buku[42].id_buku = 1043;
-    buku[42].genre_buku = "Fantasi";
-    buku[42].penulis = "Tere Liye";
-
-    buku[43].nama_buku = "Tikungan Tajam";
-    buku[43].id_buku = 1044;
-    buku[43].genre_buku = "Drama";
-    buku[43].penulis = "Okky Madasari";
-
-    buku[44].nama_buku = "Ayah";
-    buku[44].id_buku = 1045;
-    buku[44].genre_buku = "Keluarga";
-    buku[44].penulis = "Andrea Hirata";
-
-    buku[45].nama_buku = "Hati Suhita";
-    buku[45].id_buku = 1046;
-    buku[45].genre_buku = "Religi";
-    buku[45].penulis = "Khila Rindani";
-
-    buku[46].nama_buku = "Cinta dalam Gelas";
-    buku[46].id_buku = 1047;
-    buku[46].genre_buku = "Inspiratif";
-    buku[46].penulis = "Andrea Hirata";
-
-    buku[47].nama_buku = "Surat Kecil untuk Tuhan";
-    buku[47].id_buku = 1048;
-    buku[47].genre_buku = "Keluarga";
-    buku[47].penulis = "Agnes Davonar";
-
-    buku[48].nama_buku = "Catatan Najwa";
-    buku[48].id_buku = 1049;
-    buku[48].genre_buku = "Sosial Politik";
-    buku[48].penulis = "Najwa Shihab";
-
-    buku[49].nama_buku = "Orang-Orang Biasa";
-    buku[49].id_buku = 1050;
-    buku[49].genre_buku = "Sosial";
-    buku[49].penulis = "Andrea Hirata";
-
-    buku[50].nama_buku = "Bumi Manusia";
-    buku[50].id_buku = 1051;
-    buku[50].genre_buku = "Sejarah";
-    buku[50].penulis = "Pramoedya Ananta Toer";
-
-    buku[51].nama_buku = "Anak Semua Bangsa";
-    buku[51].id_buku = 1052;
-    buku[51].genre_buku = "Sejarah";
-    buku[51].penulis = "Pramoedya Ananta Toer";
-
-    buku[52].nama_buku = "Jejak Langkah";
-    buku[52].id_buku = 1053;
-    buku[52].genre_buku = "Sejarah";
-    buku[52].penulis = "Pramoedya Ananta Toer";
-
-    buku[53].nama_buku = "Rumah Kaca";
-    buku[53].id_buku = 1054;
-    buku[53].genre_buku = "Sejarah";
-    buku[53].penulis = "Pramoedya Ananta Toer";
-
-    buku[54].nama_buku = "This Earth of Mankind";
-    buku[54].id_buku = 1055;
-    buku[54].genre_buku = "Sejarah";
-    buku[54].penulis = "Pramoedya Ananta Toer";
-
-    buku[55].nama_buku = "Sang Penari";
-    buku[55].id_buku = 1056;
-    buku[55].genre_buku = "Budaya";
-    buku[55].penulis = "Ahmad Tohari";
-
-    buku[56].nama_buku = "Manusia Setengah Salmon";
-    buku[56].id_buku = 1057;
-    buku[56].genre_buku = "Komedi";
-    buku[56].penulis = "Raditya Dika";
-
-    buku[57].nama_buku = "Jalan Pulang";
-    buku[57].id_buku = 1058;
-    buku[57].genre_buku = "Fiksi";
-    buku[57].penulis = "Tere Liye";
-
-    buku[58].nama_buku = "Cinta dalam Diam";
-    buku[58].id_buku = 1059;
-    buku[58].genre_buku = "Religi";
-    buku[58].penulis = "Felix Siauw";
-
-    buku[59].nama_buku = "Bidadari Bermata Bening";
-    buku[59].id_buku = 1060;
-    buku[59].genre_buku = "Religi";
-    buku[59].penulis = "Habiburrahman El Shirazy";
-    
-    buku[60].nama_buku = "Atomic Habits";
-    buku[60].id_buku = 1061;
-    buku[60].genre_buku = "Self-Help";
-    buku[60].penulis = "James Clear";
-    
-    buku[61].nama_buku = "La Tahzan";
-    buku[61].id_buku = 1062;
-    buku[61].genre_buku = "Religi";
-    buku[61].penulis = "'Aidh Al-Qarni";
-    
-    buku[62].nama_buku = "Struktur Data dan Algoritma";
-    buku[62].id_buku = 1063;
-    buku[62].genre_buku = "Pendidikan";
-    buku[62].penulis = "Abdul Kadir";
-    
-    buku[63].nama_buku = "Kisah 25 Nabi dan Rasul";
-    buku[63].id_buku = 1064;
-    buku[63].genre_buku = "Religi, Pendidikan";
-    buku[63].penulis = "Tim Edukatif";
-    
-    buku[64].nama_buku = "Sherlock Holmes";
-    buku[64].id_buku = 1065;
-    buku[64].genre_buku = "Detektif";
-    buku[64].penulis = "Sir Arthur Conan Doyle";
-}
+	void tambah_hari() {
+	    hari_ini.hari++;
+	    int hariMax = jumlah_hari_bulan(hari_ini.bulan, hari_ini.tahun);
+	
+	    if (hari_ini.hari > hariMax) {
+	        hari_ini.hari = 1;
+	        hari_ini.bulan++;
+	        if (hari_ini.bulan > 12) {
+	            hari_ini.bulan = 1;
+	            hari_ini.tahun++;
+	        }
+	    }
+	}
+	
+	void muat_tanggal() {
+	    ifstream fin("tanggal.txt");
+	    if (fin.is_open()) {
+	        fin >> hari_ini.hari >> hari_ini.bulan >> hari_ini.tahun;
+	        fin.close();
+	    } else {
+	        hari_ini = {6, 7, 2025}; // default awal
+	    }
+	    tambah_hari();
+	}
 
     void muat_data_akun() {
 	    ifstream fin("data_akun.txt");
@@ -433,9 +488,16 @@ public:
         isi_data_buku();
         muat_data_akun(); 
 		muat_data_buku(); 
+		muat_tanggal();
     }
     
 //-------------------- FITUR MENYIMPAN DATA --------------------
+    
+    void simpan_tanggal() {
+	    ofstream fout("tanggal.txt");
+	    fout << hari_ini.hari << " " << hari_ini.bulan << " " << hari_ini.tahun;
+	    fout.close();
+	}
     
     void simpan_data_akun() {
 	    ofstream fout("data_akun.txt");
@@ -483,6 +545,12 @@ public:
 	}
 	
 //-------------------- FITUR UMUM --------------------
+
+	void tampilkan_tanggal() {
+	    cout << hari_ini.hari << " / " 
+	         << hari_ini.bulan << " / " 
+	         << hari_ini.tahun;
+	}
 
     void tampil_buku() {
     	cout << "\n+=============================================+" << endl;
@@ -649,32 +717,39 @@ public:
     }
     
     void ganti_sandi() {
-    	string lama, baru;
-    	
-    	cout << endl;
-		cout << "+=====================================+" << endl;
-		cout << "|             GANTI SANDI             |" << endl;
-		cout << "+=====================================+" << endl;
-    	
-    	cout << "| Masukkan sandi lama: ";
-    	cin >> lama;
-
-    	if (lama != akun[index_akun].sandi) {
-        	cout << "Sandi lama salah" << endl;
-        	ganti_sandi();
-    	}
-
-    	cout << "| Masukkan sandi baru: ";
-    	cin >> baru;
-    	
-    	if (baru == akun[index_akun].sandi) {
-    		cout << "| Sandi tidak boleh sama seperti sandi lama" << endl;
-    		ganti_sandi();
-		} else {
-    		akun[index_akun].sandi = baru;
-    		cout << "Sandi berhasil diganti!" << endl;
-		}
-
+	    string lama, baru;
+	    bool valid = false;
+	
+	    cout << endl;
+	    cout << "+=====================================+" << endl;
+	    cout << "|             GANTI SANDI             |" << endl;
+	    cout << "+=====================================+" << endl;
+	
+	    // Validasi sandi lama
+	    while (true) {
+	        cout << "| Masukkan sandi lama: ";
+	        cin >> lama;
+	
+	        if (lama == akun[index_akun].sandi) {
+	            break;
+	        } else {
+	            cout << "| Sandi lama salah. Silakan coba lagi." << endl;
+	        }
+	    }
+	
+	    // Input sandi baru
+	    while (!valid) {
+	        cout << "| Masukkan sandi baru: ";
+	        cin >> baru;
+	
+	        if (baru == akun[index_akun].sandi) {
+	            cout << "| Sandi tidak boleh sama seperti sandi lama." << endl;
+	        } else {
+	            akun[index_akun].sandi = baru;
+	            cout << "| Sandi berhasil diganti!" << endl;
+	            valid = true;
+	        }
+	    }
 	}
 
     void login_akun() {
@@ -722,7 +797,7 @@ public:
 
         cout << endl;
 		cout << "+=============================================+" << endl;
-		cout << "|                  SEWA BUKU                  |" << endl;
+		cout << "|                 PINJAM BUKU                 |" << endl;
 		cout << "+=============================================+" << endl;
 		cout << "| Nama buku yang akan disewa:                 |" << endl;
 		cout << "+---------------------------------------------+" << endl;
@@ -746,7 +821,7 @@ public:
 
                         if (hari == 0) {
                             cout << "+---------------------------------------------+" << endl;
-                    		cout << "| Tidak bisa menyewa selama 0 hari            |" << endl;
+                    		cout << "| Tidak bisa meminjam selama 0 hari           |" << endl;
                         }
 
                     } while (hari == 0);
@@ -757,7 +832,7 @@ public:
                     akun[index_akun].jum_sewa++;
                     
                     cout << "+---------------------------------------------+" << endl;
-            		cout << "| Buku berhasil disewa.                       |" << endl;
+            		cout << "| Buku berhasil dipinjam.                     |" << endl;
             		cout << "+=============================================+" << endl;
                 }
             }
@@ -857,7 +932,7 @@ public:
 	}
 	
 	void input_data_buku() {
-	    if (jum_buku >= 65) {
+	    if (jum_buku >= 70) {
 	        cout << "\nJumlah maksimal buku telah tercapai.\n";
 	        return;
 	    }
@@ -965,7 +1040,7 @@ public:
 		bool ada;
 		
 		cout << "\n+==========================================+" << endl;
-		cout << "|         DAFTAR PENYEWA BUKU              |" << endl;
+		cout << "|         DAFTAR PEMINJAM BUKU             |" << endl;
 		cout << "+==========================================+" << endl;
 		
 		for (int i = 0; i < jum_akun; i++) {
@@ -973,7 +1048,7 @@ public:
 	            ada = true;
 	            
 	            cout << "| Nama : " << akun[i].username << " (" << akun[i].nama << ")" << endl;
-        		cout << "| Buku yang disewa:" << endl;
+        		cout << "| Buku yang dipinjam:" << endl;
 
         		for (int j = 0; j < akun[i].jum_sewa; j++) {
             	cout << "|   " << j+1 << ". " << akun[i].buku_sewa[j]
@@ -986,7 +1061,7 @@ public:
 		}
 
 	    if (!ada) {
-    	cout << "| Tidak ada buku yang sedang disewa        |" << endl;
+    	cout << "| Tidak ada buku yang sedang di[injam      |" << endl;
     	cout << "+==========================================+" << endl;
 		}
 	}
@@ -1057,12 +1132,12 @@ public:
             cout << "+==============================+" << endl;
 			cout << "|       MENU PELANGGAN 2       |" << endl;
 			cout << "+==============================+" << endl;
-			cout << "| (1) Sewa Buku                |" << endl;
+			cout << "| (1) Pinjam Buku              |" << endl;
 			cout << "| (2) Lihat Semua Buku         |" << endl;
 			cout << "| (3) Cari Buku                |" << endl;
 			cout << "| (4) Review Buku              |" << endl;
 			cout << "| (5) Ganti Sandi Akun         |" << endl;
-			cout << "| (6) Lihat Buku yang Anda Sewa|" << endl;
+			cout << "| (6) Buku yang Anda Pinjam    |" << endl;
 			cout << "| (7) Kembali ke Menu Utama    |" << endl;
 			cout << "+==============================+" << endl;
 			cout << "Masukkan pilihan anda: ";
@@ -1097,7 +1172,7 @@ public:
                     if (akun[index_akun].jum_sewa > 0) {
                      
                     cout << "\n+=============================================+" << endl;
-    				cout << "|             BUKU YANG ANDA SEWA             |" << endl;
+    				cout << "|            BUKU YANG ANDA PINJAM            |" << endl;
     				cout << "+=============================================+" << endl;
                     
                     for (int i = 0; i < akun[index_akun].jum_sewa; i++) {
@@ -1106,7 +1181,7 @@ public:
 			            cout << "+=============================================+" << endl;
                     } else if (akun[index_akun].jum_sewa == 0) {
                         cout << "\n+=============================================+" << endl;
-    					cout << "|           ANDA BELUM MENYEWA BUKU           |" << endl;
+    					cout << "|           ANDA BELUM MEMINJAM BUKU          |" << endl;
     					cout << "+=============================================+" << endl;
                     }
                     system("pause");					                    	
@@ -1132,7 +1207,7 @@ public:
     					}
     					cout << "|---------------------------------------------|" << endl;
     					cout << "| Harga Total    : Rp. " << harga_total << endl;
-    					cout << "| Tanggal Pinjam : " << __DATE__ << " (simulasi)" << endl;
+    					cout << "| Tanggal Pinjam : "; tampilkan_tanggal(); cout << endl;
     					cout << "+=============================================+" << endl;
 						} else if (akun[index_akun].jum_sewa == 0) {
     					return;
@@ -1161,7 +1236,7 @@ public:
 			cout << "|  (2) Lihat Data Buku                      |" << endl;
 			cout << "|  (3) Urutkan Data Buku                    |" << endl;
 			cout << "|  (4) Lihat Seluruh Review Buku            |" << endl;
-			cout << "|  (5) Lihat Daftar Penyewa                 |" << endl;
+			cout << "|  (5) Lihat Daftar Peminjaman              |" << endl;
 			cout << "|  (6) Lihat Data Pelanggan                 |" << endl;
 			cout << "|  (7) Kembali ke Menu Utama                |" << endl;
 			cout << "+===========================================+" << endl;
@@ -1268,6 +1343,7 @@ int main() {
 
 	neuf.simpan_data_akun();
 	neuf.simpan_data_buku();
+	neuf.simpan_tanggal();
 	
     return 0;
 }
